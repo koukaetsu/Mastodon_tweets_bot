@@ -9,9 +9,9 @@
 
 This Python bot monitors specific Twitter users' activity, optionally translates the content, and automatically reposts it to a Mastodon account via direct messages.
 
-🛠️ It was deployed and operated on **a self-hosted Mastodon instance** running on **my own VPS and custom domain**, which I configured and maintained independently.
+🛠️ It was deployed and operated on **a self-hosted Mastodon instance**, running on **my own VPS with a custom domain**, fully set up using **Docker** and managed via **SSH remote connection**.
 
-The bot simulated cross-platform "tweet forwarding" before Twitter API limitations and server costs led to the instance being shut down.
+The bot simulated cross-platform "tweet forwarding" before Twitter API limitations and hosting costs led to the server shutdown.
 
 ---
 
@@ -27,11 +27,12 @@ The bot simulated cross-platform "tweet forwarding" before Twitter API limitatio
 
 ## 🖥️ Deployment Details
 
-- Platform: **Mastodon (custom instance)**
-- Hosting: **VPS (cloud server) configured manually**
-- Domain: **Self-owned domain pointing to instance**
-- Security: Used token-based Mastodon API authentication
-- Maintenance: Regularly updated + monitored by me during runtime
+- **Hosting**: Cloud VPS server (Debian/Linux), self-managed
+- **Containerization**: Entire Mastodon instance was deployed using Docker Compose  
+  (Redis, PostgreSQL, Sidekiq, Mastodon services in containers)
+- **Remote Management**: Configured and maintained via SSH login (manual monitoring, logs, token resets)
+- **Domain**: Custom domain pointing to Mastodon instance, served over HTTPS
+- **Bot Runtime**: Python bot script executed on the same server, using Mastodon API token auth
 
 ---
 
@@ -49,9 +50,11 @@ The bot simulated cross-platform "tweet forwarding" before Twitter API limitatio
 
 This project was my first experience with:
 
-- Full-stack bot interaction: from input parsing to API execution
-- Building and maintaining my own Mastodon instance (server + domain + database)
-- Handling real-world content (tweet scraping, unicode, timestamps)
-- Writing my own command parsing structure using regex
+- 🧩 Full-stack bot interaction: from content parsing to remote API posting
+- 🚀 Self-deploying and managing a Mastodon instance using **Docker**
+- 🔐 Running remote services via **SSH + Linux VPS**
+- 🧪 Handling real-world tweet data, emoji, timestamps, and translation
+- 🧠 Designing a simple command language (`-uid`, `-word`) to interface with my bot
 
-Though the tool is deprecated, I’m proud of what I built at the time and how it shaped my current approach to modular design, deployment, and automation.
+Though the tool is deprecated, I’m proud of what I built at the time and how it shaped my current understanding of automation, infrastructure, and modular architecture.
+
